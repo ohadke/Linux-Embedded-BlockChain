@@ -25,7 +25,7 @@ void createServerAndMinersThreads(pthread_t* server, pthread_t* miners){
 	pthread_attr_setschedpolicy(&miner_attr, SCHED_RR);
 	pthread_attr_setinheritsched(&server_attr, PTHREAD_EXPLICIT_SCHED);//decided if the inhertits threads from this thread will inherit from this thread
 	pthread_attr_setinheritsched(&miner_attr, PTHREAD_EXPLICIT_SCHED);
-	pthread_setschedparam(pthread_self(), SCHED_RR, &min_prio);
+	pthread_setschedparam(pthread_self(), SCHED_RR, &min_prio);// main thread is in the min piority at rr scheduling
 	
 	pthread_create(server, &server_attr,ServerRoutine, NULL);
 	for(i=0;i<NUM_OF_MINERS;i++){
