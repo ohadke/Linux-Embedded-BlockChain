@@ -17,7 +17,7 @@ void createServerAndMinersThreads(pthread_t* server, pthread_t* miners){
 	max_prio.sched_priority = sched_get_priority_max(SCHED_RR);
 	min_prio.sched_priority = sched_get_priority_min(SCHED_RR);
 	
-	pthread_attr_init(&server_attr);
+	pthread_attr_init(&server_attr);//initailize the server and the thread attributes.
 	pthread_attr_init(&miner_attr);
 	pthread_attr_setschedparam(&server_attr,&max_prio);
 	pthread_attr_setschedparam(&miner_attr, &min_prio);
